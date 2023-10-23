@@ -23,12 +23,15 @@ public class FileReader {
 
         
         for (int i=0; i<3; i++) {
-            if (args[i].substring(2,2).equalsIgnoreCase("-f"))
+            if (args[i].substring(0,2).equalsIgnoreCase("-f"))
                 fileName=args[i].substring(2, args[i].length());
             if (args[i].substring(0,2).equalsIgnoreCase("-t"))
                 type=args[i].substring(2, args[i].length());
-            if (args[i].substring(2,2).equalsIgnoreCase("-s"))
-                sortMethod=args[i].substring(0, args[i].length());
+            // Sorting and the Type of Sorts
+            if (args[i].substring(0,2).equalsIgnoreCase("-s"))
+                sortMethod = sortMap.get(args[i].substring(2).toLowerCase());
+            
+            
         }
         System.out.println(fileName);
         System.out.println(type);
