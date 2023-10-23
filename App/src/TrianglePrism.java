@@ -1,15 +1,14 @@
-public class PentagonBase extends ThreeDimensionalShape {
+public class TrianglePrism extends ThreeDimensionalShape {
     public double sideLength;
 
-    public PentagonBase(double sideLength, double height) {
+    public TrianglePrism(double sideLength, double height) {
         super(height);
         this.sideLength = sideLength;
     }
 
     @Override
     public double getArea() {
-        double degrees = 54;
-        return 5 * (sideLength * sideLength) * (Math.tan(Math.toRadians(degrees)) / 4);
+        return (sideLength * sideLength) * (Math.sqrt(3) / 4);
     }
 
     @Override

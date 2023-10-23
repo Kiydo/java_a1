@@ -1,7 +1,7 @@
-public class SquareBase extends ThreeDimensionalShape {
+public class SquarePrism extends ThreeDimensionalShape {
     public double sideLength;
 
-    public SquareBase(double sideLength, double height) {
+    public SquarePrism(double sideLength, double height) {
         super(height);
         this.sideLength = sideLength;
     }

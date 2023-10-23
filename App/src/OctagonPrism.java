@@ -1,7 +1,7 @@
-public class OctagonBase extends ThreeDimensionalShape {
+public class OctagonPrism extends ThreeDimensionalShape {
     public double sideLength;
 
-    public OctagonBase(double sideLength, double height) {
+    public OctagonPrism(double sideLength, double height) {
         super(height);
         this.sideLength = sideLength;
     }
