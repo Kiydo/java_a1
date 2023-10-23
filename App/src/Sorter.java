@@ -44,7 +44,7 @@ public class Sorter {
 
     // TODO
     public static void quickSort() {
-
+        // test commit
     }
 
     // Merge Sort - using recursion
