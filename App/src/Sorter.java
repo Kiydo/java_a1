@@ -42,9 +42,42 @@ public class Sorter {
         }
     }
 
-    // TODO
-    public static void quickSort() {
-        // test commit
+    // 1. pick a pivot
+    // 2. move elements left of pivot if lower, right if higher
+    // 3. repeat the sort on left+right subarrays until subarrays have only 1 value.
+    public static void quickSort(int[] array, int lowIndex, int highIndex) {
+        // quickSort(array, 0, array.length - 1);
+
+        if (lowIndex >= highIndex) {
+            return; // exit when arrays only have 1 element
+        }
+        // last element in array as pivot
+        int pivot = array[highIndex];
+        int lp = lowIndex; // left pointer moving right
+        int rp = highIndex; // right pointer moving left
+
+        while (lp < rp) {
+            while (array[lp] <= pivot && lp < rp) {
+                lp++;
+            }
+            while (array[rp] >= pivot && lp < rp) {
+                rp--;
+            }
+            swap(array, lp, rp);
+        }
+        swap(array, lp, highIndex);
+
+        // repeat recursively for left and right subarrays
+        quickSort(array, lowIndex, lp - 1);
+        quickSort(array, lp + 1, highIndex);
+    }
+
+    // swap 2 elements in array using provided indexes
+    public static void swap(int[] array, int index1, int index2) {
+        int temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
+
     }
 
     // Merge Sort - using recursion
