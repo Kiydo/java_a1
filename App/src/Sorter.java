@@ -139,7 +139,53 @@ public class Sorter {
     // Radix Sort - non-comparative. doesn't work with objects.
     // time complexity: O(nk)
     // space complexity: O(n+k)
-    public static void radixSort() {
+    // The 1st method {getMax} to get the largest number in the array so that we will know the highest exponential number
+    private static int getMax(int[] array) {
+		int max = array[0];
 
+        for (int i = 1; i < array.length; i++) {
+        	if (array[i] > max) {
+        		max = array[i];
+        	}   
+        }
+        
+        return max;
     }
+    // The 2nd method {countSort} to sort the order by given exponential place
+    private static void countSort(int[] array, int exp) {
+        // output array and buckets array for temp storage
+    	int[] output = new int[array.length];
+        int[] buckets = new int[10];
+
+        // store "how many times each number existed" in buckets array
+        for (int i = 0; i < array.length; i++)
+            buckets[(array[i]/exp) % 10]++;
+
+        // update buckets array by accumulating the times for each index with the last index
+        for (int i = 1; i < 10; i++)
+            buckets[i] += buckets[i - 1];
+
+        // store the result in output array
+        for (int i = array.length - 1; i >= 0; i--) {
+            output[buckets[(array[i]/exp) % 10] - 1] = array[i];
+            buckets[(array[i]/exp) % 10]--;
+        }
+
+        // assign the sorted output back to the original array
+        for (int i = 0; i < array.length; i++)
+        	array[i] = output[i];
+        
+        // clear the 2 temp arrays
+        output = null;
+        buckets = null;
+    }
+    
+    // The final method to utilize {getMax} and {countSort} to sort each exponential digits of the passing array
+    public static void radixSort(int[] array) {
+        int max = getMax(array);
+
+        for (int exp = 1; max/exp > 0; exp *= 10)
+            countSort(array, exp);
+    }
+	
 }
