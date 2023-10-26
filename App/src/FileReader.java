@@ -12,13 +12,14 @@ public class FileReader {
         String fileName = "";
         String type = null;
         String sortMethod = null;
+
         HashMap<String, String> sortMap = new HashMap<>();
-        sortMap.put("s", "Selection");
-        sortMap.put("i", "Insertion");
-        sortMap.put("b", "Bubble");
-        sortMap.put("q", "Quick");
-        sortMap.put("m", "Merge");
-        sortMap.put("r", "Radix");
+            sortMap.put("s", "Selection");
+            sortMap.put("i", "Insertion");
+            sortMap.put("b", "Bubble");
+            sortMap.put("q", "Quick");
+            sortMap.put("m", "Merge");
+            sortMap.put("r", "Radix");
 
         for (int i = 0; i < 3; i++) {
             if (args[i].substring(0, 2).equalsIgnoreCase("-f"))
