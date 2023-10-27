@@ -134,10 +134,12 @@ public static void main(String[] args) {
         }
 
         //Print the sorted array
+        
+        for (int i = 999; i <= shapesArray.length; i = i + 1000) {
+            System.out.println(shapesArray[i]);
+        }
+        
         System.out.println("First item:" + shapesArray[0]);
-//        for (int i = 999; i <= shapesArray.length; i = i + 1000) {
-//            System.out.println(shapesArray[i]);
-//        }
         System.out.println("Last item:" + shapesArray[shapesArray.length - 1]);
     }
 }    
