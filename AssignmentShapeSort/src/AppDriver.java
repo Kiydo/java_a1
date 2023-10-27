@@ -1,6 +1,5 @@
 
 import java.util.Comparator;
-import java.util.HashMap;
 import ThreeDimensionalShape.ThreeDimensionalShape;
 import Utility.CompareArea;
 import Utility.CompareHeight;
@@ -8,13 +7,20 @@ import Utility.CompareVolume;
 import Utility.Utility;
 
 /**
+ * The `AppDriver` class is responsible for sorting an array of three-dimensional shapes based on user-defined criteria.
+ * It supports sorting by height, base area, or volume using various sorting algorithms.
  *
- * @author pltdu
+ * @author team2
  */
 public class AppDriver {
 
     /**
-     * @param args the command line arguments
+     * The main entry point of the application. It takes three command-line arguments to specify the input file, sort type, and sort method.
+     *
+     * @param args The command-line arguments:
+     *             - `-f`: The file name or path containing three-dimensional shapes data.
+     *             - `-t`: The type of sorting criteria (a - Area, v - Volume, h - Height).
+     *             - `-s`: The sort method (s - Selection, i - Insertion, b - Bubble, q - Quick, m - Merge, z - Heap).
      */
 public static void main(String[] args) {
         if (args.length != 3) {
@@ -22,18 +28,13 @@ public static void main(String[] args) {
             return;
         }
 
+        //Declare variable to hold arguements
         String fileName = "";
         String type = null;
         String sortMethod = null;
 
-        HashMap<String, String> sortMap = new HashMap<>();
-        sortMap.put("s", "Selection");
-        sortMap.put("i", "Insertion");
-        sortMap.put("b", "Bubble");
-        sortMap.put("q", "Quick");
-        sortMap.put("m", "Merge");
-        sortMap.put("r", "Radix");
-
+        
+        //Check and collect the arguemenst, assign them to variables
         try {
             for (int i = 0; i < 3; i++) {
                 if (args[i].substring(0, 2).equalsIgnoreCase("-f"))
@@ -48,19 +49,20 @@ public static void main(String[] args) {
             return;
         }
         
-        //Display the arguments to user
+        
+        //Display arguemenst to user
         System.out.println(fileName);
         System.out.println(type);
         System.out.println(sortMethod);
 
 
-        //Get the array of shapes from the file
+        //Call the file reader and populate the array
         FileReader fileReader = new FileReader();
         fileReader.readShapesFromFile(fileName);
         ThreeDimensionalShape[] shapesArray = fileReader.getShapesArray();
 
 
-        //Variables for sorting and timing
+        //Declare variables to measure time and create comparator according sorting method
         long startTime;
         long endTime;
         Utility<ThreeDimensionalShape> shapeUtility = new Utility<>();
@@ -68,11 +70,10 @@ public static void main(String[] args) {
         CompareArea compareArea = new CompareArea();
         CompareVolume compareVolume = new CompareVolume();
         
+        Comparator<ThreeDimensionalShape> comparator = null; // Initialize the comparator
 
-
-        //switch for sortAlgorithm
-       Comparator<ThreeDimensionalShape> comparator = null; // Initialize the comparator
-
+        
+        //Assign comparator according sort type "-t"
         switch (type) {
             case "h":
                 System.out.println("Sorting by height");
@@ -90,7 +91,8 @@ public static void main(String[] args) {
                 System.out.println("Invalid sort type.");
                 return;
         }
-
+        
+        //Sort according to sort method
         switch (sortMethod) {
             case "s":
                 startTime = System.currentTimeMillis();
@@ -133,12 +135,10 @@ public static void main(String[] args) {
                 return;
         }
 
-        //Print the sorted array
-        
-        for (int i = 999; i <= shapesArray.length; i = i + 1000) {
+        //Print result, every 1000th shape then the first and the last shape
+        for (int i = 0; i <= shapesArray.length; i = i + 1000) {
             System.out.println(shapesArray[i]);
         }
-        
         System.out.println("First item:" + shapesArray[0]);
         System.out.println("Last item:" + shapesArray[shapesArray.length - 1]);
     }
