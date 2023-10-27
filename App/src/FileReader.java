@@ -78,7 +78,10 @@ public class FileReader {
                     SquarePrism squarePrism = new SquarePrism(sideLength, height);
                     System.out.println(squarePrism);
                 } else if (ObjectType.equalsIgnoreCase("TrianglePrism")) {
-                    // ...
+                    double height = myReader.nextDouble();
+                    double sideLength = myReader.nextDouble();
+                    TrianglePrism trianglePrism = new TrianglePrism(sideLength, height);
+                    System.out.println(trianglePrism);
                 }
             }
         } catch (FileNotFoundException e) {

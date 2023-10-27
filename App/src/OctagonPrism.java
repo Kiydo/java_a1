@@ -13,7 +13,7 @@ public class OctagonPrism extends ThreeDimensionalShape {
 
     @Override
     public double getVolume() {
-        return getArea() * (height * height * height * height);
+        return getArea() * height;
     }
 
     
