@@ -1,0 +1,225 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffcc2308c13, pid=10084, tid=28264
+#
+# JRE version:  (11.0.20+8) (build )
+# Java VM: OpenJDK 64-Bit Server VM (11.0.20+8-LTS, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# Problematic frame:
+# V  [jvm.dll+0x1d8c13]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: AssignmentShapeSort.jar -fpolyfor1.txt -th -sm
+
+Host: 11th Gen Intel(R) Core(TM) i7-11370H @ 3.30GHz, 8 cores, 15G,  Windows 11 , 64 bit Build 22621 (10.0.22621.2428)
+Time: Fri Oct 27 11:56:39 2023 Mountain Daylight Time elapsed time: 0.011131 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000014efac76800):  JavaThread "Unknown thread" [_thread_in_vm, id=28264, stack(0x00000015a8300000,0x00000015a8400000)]
+
+Stack: [0x00000015a8300000,0x00000015a8400000],  sp=0x00000015a83fef00,  free space=1019k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x1d8c13]
+V  [jvm.dll+0x1d6d63]
+V  [jvm.dll+0x36585b]
+V  [jvm.dll+0x779130]
+V  [jvm.dll+0x3d4c1f]
+V  [jvm.dll+0x3d6fb1]
+C  [jli.dll+0x5227]
+C  [ucrtbase.dll+0x29363]
+C  [KERNEL32.DLL+0x1257d]
+C  [ntdll.dll+0x5aa78]
+
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0x0000000000000000
+
+
+Registers:
+RAX=0x0000bc0bf8f01a90, RBX=0x0000000000000000, RCX=0x0000000000000000, RDX=0x0000000000000000
+RSP=0x00000015a83fef00, RBP=0x0000000000000000, RSI=0x0000014efac76800, RDI=0x0000000000000000
+R8 =0x0000000000000000, R9 =0x0000000000000000, R10=0x0000000000000000, R11=0x00000015a83fecc0
+R12=0x0000000000000000, R13=0x00007ffcc27085c0, R14=0x0000014ef8ad77f8, R15=0x00000015a83ffc48
+RIP=0x00007ffcc2308c13, EFLAGS=0x0000000000010256
+
+Top of Stack: (sp=0x00000015a83fef00)
+0x00000015a83fef00:   0000014ef8aec8f0 00007ffcc2403258
+0x00000015a83fef10:   00000015a83ffc48 0000000000000400
+0x00000015a83fef20:   0000000000000000 0000014efac76800
+0x00000015a83fef30:   00003c2ec6d9ee5a 00007ffcc27085c0
+0x00000015a83fef40:   00000015a83ff020 0000014ef8ad77f8
+0x00000015a83fef50:   00007ffcc27085c0 0000000000000000
+0x00000015a83fef60:   00000015a83ffc48 0000000000000000
+0x00000015a83fef70:   00007ffd7b860000 00007ffcc29da3d8
+0x00000015a83fef80:   00007ffcc2306c0a 00007ffd939f19bc
+0x00000015a83fef90:   00000015a83ff020 0000000000000001
+0x00000015a83fefa0:   0000bc0bf8f01a90 0000014ef8ad77f8
+0x00000015a83fefb0:   00007ffc00000000 00007ffcc27085c0
+0x00000015a83fefc0:   0000014efac76800 00000015a83ff0e0
+0x00000015a83fefd0:   0000000000000000 00007ffcc2306d63
+0x00000015a83fefe0:   00007ffd79190000 00007ffd7b86d0e0
+0x00000015a83feff0:   00000015a83ff0e0 0000014efac76800 
+
+Instructions: (pc=0x00007ffcc2308c13)
+0x00007ffcc2308b13:   f0 ff 15 86 9d 61 00 48 8b cb 41 b1 01 48 2b 8c
+0x00007ffcc2308b23:   24 90 00 00 00 45 33 c0 33 d2 c6 04 31 00 48 8b
+0x00007ffcc2308b33:   ce e8 b7 0b 00 00 42 80 3c 33 3b 4a 8d 3c 33 75
+0x00007ffcc2308b43:   1c 0f 1f 40 00 0f 1f 84 00 00 00 00 00 48 ff c3
+0x00007ffcc2308b53:   ff c5 42 80 3c 33 3b 4a 8d 3c 33 74 f0 49 83 3c
+0x00007ffcc2308b63:   24 00 74 18 48 8b 94 24 98 00 00 00 49 8b cf e8
+0x00007ffcc2308b73:   19 a3 ee ff 49 8b cc e8 81 a2 ee ff 48 8b 44 24
+0x00007ffcc2308b83:   20 48 8d 4c 24 30 49 89 47 18 48 8b 44 24 28 49
+0x00007ffcc2308b93:   89 47 20 4d 89 67 10 e8 f1 b0 0f 00 44 8b ed 48
+0x00007ffcc2308ba3:   89 9c 24 90 00 00 00 48 3b 5c 24 38 0f 8c cd fe
+0x00007ffcc2308bb3:   ff ff 4c 8b 7c 24 40 4c 8b 64 24 48 48 8b 7c 24
+0x00007ffcc2308bc3:   50 48 8b 74 24 58 48 8b 9c 24 80 00 00 00 48 83
+0x00007ffcc2308bd3:   c4 60 41 5e 41 5d 5d c3 cc cc cc cc cc 40 53 55
+0x00007ffcc2308be3:   56 41 55 48 81 ec b8 00 00 00 48 8b 05 14 25 8b
+0x00007ffcc2308bf3:   00 48 33 c4 48 89 84 24 a0 00 00 00 48 8b e9 48
+0x00007ffcc2308c03:   c7 c3 ff ff ff ff 0f 1f 80 00 00 00 00 48 ff c3
+0x00007ffcc2308c13:   80 3c 0b 00 75 f7 33 f6 c6 44 24 30 01 40 38 35
+0x00007ffcc2308c23:   15 58 8e 00 74 17 40 38 35 81 bd 8d 00 75 0e 33
+0x00007ffcc2308c33:   d2 48 8d 0d c5 15 6d 00 e8 90 93 1a 00 45 33 ed
+0x00007ffcc2308c43:   85 db 0f 8e 11 02 00 00 48 89 bc 24 e8 00 00 00
+0x00007ffcc2308c53:   48 8b fd 4c 89 a4 24 f0 00 00 00 48 63 c3 33 db
+0x00007ffcc2308c63:   4c 89 b4 24 f8 00 00 00 4c 89 bc 24 b0 00 00 00
+0x00007ffcc2308c73:   48 89 44 24 68 48 89 74 24 40 0f 1f 00 0f b6 07
+0x00007ffcc2308c83:   84 c0 74 12 3c 3b 74 0e 0f b6 44 2b 01 48 ff c3
+0x00007ffcc2308c93:   ff c6 84 c0 75 ee 48 8d 54 24 38 48 c7 44 24 38
+0x00007ffcc2308ca3:   00 00 00 00 48 8d 4c 24 60 e8 5f af 0f 00 48 8b
+0x00007ffcc2308cb3:   44 24 38 33 d2 4c 8b b0 78 02 00 00 49 8b 46 18
+0x00007ffcc2308cc3:   4d 8b 66 10 48 89 44 24 50 49 8b 46 20 48 89 44
+0x00007ffcc2308cd3:   24 58 49 8b 46 28 48 89 44 24 48 8b c6 41 2b c5
+0x00007ffcc2308ce3:   48 63 f8 48 8d 4f 01 e8 71 40 4b 00 49 63 d5 4c
+0x00007ffcc2308cf3:   8b c7 48 03 d5 48 8b c8 4c 8b f8 ff 15 9c 9b 61
+0x00007ffcc2308d03:   00 48 8b cb 48 2b 4c 24 40 80 7c 24 30 00 42 c6 
+
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000014ef8ad7780, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000014efac76800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=28264, stack(0x00000015a8300000,0x00000015a8400000)]
+
+Threads with active compile tasks:
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+
+[error occurred during error reporting (printing compressed oops mode), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffcc28c70c7]
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.007 Loaded shared library C:\Program Files\Microsoft\jdk-11.0.20.8-hotspot\bin\zip.dll
+
+
+Dynamic libraries:
+0x00007ff71d420000 - 0x00007ff71d42d000 	C:\Program Files\Microsoft\jdk-11.0.20.8-hotspot\bin\java.exe
+0x00007ffd95ff0000 - 0x00007ffd96207000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffd95550000 - 0x00007ffd95614000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffd939a0000 - 0x00007ffd93d46000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffd93410000 - 0x00007ffd93521000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffd82110000 - 0x00007ffd82127000 	C:\Program Files\Microsoft\jdk-11.0.20.8-hotspot\bin\jli.dll
+0x00007ffd7d250000 - 0x00007ffd7d265000 	C:\Program Files\Microsoft\jdk-11.0.20.8-hotspot\bin\VCRUNTIME140.dll
+0x00007ffd95750000 - 0x00007ffd958fd000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffd7c5d0000 - 0x00007ffd7c863000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2361_none_2712ced57382f843\COMCTL32.dll
+0x00007ffd93660000 - 0x00007ffd93686000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffd93da0000 - 0x00007ffd93dc9000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffd93ed0000 - 0x00007ffd93f77000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffd93880000 - 0x00007ffd93998000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffd93370000 - 0x00007ffd9340a000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffd94ea0000 - 0x00007ffd94ed1000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffd3a480000 - 0x00007ffd3a51b000 	C:\Program Files\Microsoft\jdk-11.0.20.8-hotspot\bin\msvcp140.dll
+0x00007ffcc2130000 - 0x00007ffcc2cc6000 	C:\Program Files\Microsoft\jdk-11.0.20.8-hotspot\bin\server\jvm.dll
+0x00007ffd94080000 - 0x00007ffd94130000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffd94570000 - 0x00007ffd94616000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffd94ee0000 - 0x00007ffd94ff7000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffd94130000 - 0x00007ffd94138000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffd62050000 - 0x00007ffd62059000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffd87310000 - 0x00007ffd8731a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffd817a0000 - 0x00007ffd817d4000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffd95000000 - 0x00007ffd95071000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffd924a0000 - 0x00007ffd924b8000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffd7d220000 - 0x00007ffd7d230000 	C:\Program Files\Microsoft\jdk-11.0.20.8-hotspot\bin\verify.dll
+0x00007ffd90e90000 - 0x00007ffd910be000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffd951c0000 - 0x00007ffd9554a000 	C:\WINDOWS\System32\combase.dll
+0x00007ffd950e0000 - 0x00007ffd951b7000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffd83780000 - 0x00007ffd837b2000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffd93690000 - 0x00007ffd9370a000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffd7b860000 - 0x00007ffd7b888000 	C:\Program Files\Microsoft\jdk-11.0.20.8-hotspot\bin\java.dll
+0x00007ffd7d210000 - 0x00007ffd7d21a000 	C:\Program Files\Microsoft\jdk-11.0.20.8-hotspot\bin\jimage.dll
+0x00007ffd79190000 - 0x00007ffd791a8000 	C:\Program Files\Microsoft\jdk-11.0.20.8-hotspot\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Microsoft\jdk-11.0.20.8-hotspot\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2361_none_2712ced57382f843;C:\Program Files\Microsoft\jdk-11.0.20.8-hotspot\bin\server
+
+VM Arguments:
+java_command: AssignmentShapeSort.jar -fpolyfor1.txt -th -sm
+java_class_path (initial): AssignmentShapeSort.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 263378176                                 {product} {ergonomic}
+   size_t MaxHeapSize                              = 4214050816                                {product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Users\pltdu\AppData\Local\jdk-11.0.2
+PATH=C:\Program Files\Microsoft\jdk-11.0.20.8-hotspot\bin;C:\app\pltdu\product\21c\dbhomeXE\bin;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\pltdu\AppData\Local\Android\Sdk\platform-tools;C:\Users\pltdu\AppData\Local\Android\Sdk\tools;C:\Users\pltdu\AppData\Local\jdk-11.0.2\bin;C:\Users\pltdu\AppData\Local\Android\Sdk\platform-tools;C:\Users\pltdu\AppData\Local\Android\Sdk\tools;C:\Users\pltdu\AppData\Local\jdk-11.0.2\bin;C:\Users\pltdu\AppData\Local\Microsoft\WindowsApps;C:\Users\pltdu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\pltdu\AppData\Local\GitHubDesktop\bin;C:\Users\pltdu\.dotnet\tools;C:\Users\pltdu\AppData\Roaming\npm;
+USERNAME=pltdu
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
+TMP=C:\Users\pltdu\AppData\Local\Temp
+TEMP=C:\Users\pltdu\AppData\Local\Temp
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 11 , 64 bit Build 22621 (10.0.22621.2428)
+OS uptime: 0 days 21:50 hours
+
+CPU:total 8 (initial active 8) 
+
+Memory: 4k page, system-wide physical 16075M (3300M free)
+TotalPageFile size 32150M (AvailPageFile size 9922M)
+current process WorkingSet (physical memory assigned to process): 9M, peak: 9M
+current process commit charge ("private bytes"): 3M, peak: 3M
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.20+8-LTS) for windows-amd64 JRE (11.0.20+8-LTS), built on Jul  7 2023 17:05:21 by "MicrosoftCorporation" with MS VC++ 15.9 (VS2017)
+
+END.
