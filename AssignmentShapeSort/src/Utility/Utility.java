@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Utility;
 
 import java.util.Arrays;
@@ -200,5 +197,60 @@ public class Utility<T> {
     
         return max != null ? Integer.parseInt(max.toString()) : 0; // Convert max to integer for radix sort
     }
-	
+    
+    /**
+     * Team's choice sorting methods
+     * @param array with generic type
+     * @param comparator
+     */
+   
+    public void heapSort(T[] array, Comparator<T> comparator) {
+        if (array == null || array.length <= 1) {
+            return; // No need to sort.
+        }
+
+        int n = array.length;
+
+        // Build a max-heap
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(array, n, i, comparator);
+        }
+
+        // Extract elements from the heap one by one
+        for (int i = n - 1; i > 0; i--) {
+            // Swap the root (maximum element) with the last element
+            T temp = array[0];
+            array[0] = array[i];
+            array[i] = temp;
+
+            // Call heapify on the reduced heap
+            heapify(array, i, 0, comparator);
+        }
+    }
+
+    
+    
+    private void heapify(T[] array, int n, int i, Comparator<T> comparator) {
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+
+        if (left < n && comparator.compare(array[left], array[largest]) > 0) {
+            largest = left;
+        }
+
+        if (right < n && comparator.compare(array[right], array[largest]) > 0) {
+            largest = right;
+        }
+
+        if (largest != i) {
+            // Swap array[i] and array[largest]
+            T temp = array[i];
+            array[i] = array[largest];
+            array[largest] = temp;
+
+            // Recursively heapify the affected sub-tree
+            heapify(array, n, largest, comparator);
+        }
+    }
 }

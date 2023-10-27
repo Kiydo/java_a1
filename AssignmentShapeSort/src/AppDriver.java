@@ -122,11 +122,11 @@ public static void main(String[] args) {
                 endTime = System.currentTimeMillis();
                 System.out.println("Merge sort took " + (endTime - startTime) + " milliseconds.");
                 break;
-            case "r":
+            case "z":
                 startTime = System.currentTimeMillis();
-                shapeUtility.radixSort(shapesArray,comparator);
+                shapeUtility.heapSort(shapesArray,comparator);
                 endTime = System.currentTimeMillis();
-                System.out.println("Radix sort took " + (endTime - startTime) + " milliseconds.");
+                System.out.println("Heap sort took " + (endTime - startTime) + " milliseconds.");
                 break;
             default:
                 System.out.println("Invalid sort method.");
@@ -135,9 +135,9 @@ public static void main(String[] args) {
 
         //Print the sorted array
         System.out.println("First item:" + shapesArray[0]);
-        for (int i = 999; i <= shapesArray.length; i = i + 1000) {
-            System.out.println(shapesArray[i]);
-        }
+//        for (int i = 999; i <= shapesArray.length; i = i + 1000) {
+//            System.out.println(shapesArray[i]);
+//        }
         System.out.println("Last item:" + shapesArray[shapesArray.length - 1]);
     }
 }    
