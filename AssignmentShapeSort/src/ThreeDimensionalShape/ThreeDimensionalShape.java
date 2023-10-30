@@ -5,7 +5,7 @@ package ThreeDimensionalShape;
  * It implements the Comparable interface to allow height-based comparisons between shapes.
  * Subclasses must provide methods to implement calculating the shape's area and volume.
  *
- * @author Matt Yackel
+ * @author Team2
  */
 public abstract class ThreeDimensionalShape implements Comparable<ThreeDimensionalShape>{
     /**

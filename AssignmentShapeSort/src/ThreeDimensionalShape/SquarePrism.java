@@ -1,6 +1,12 @@
 package ThreeDimensionalShape;
 
+/**
+ * A class representing a three-dimensional square prism shape.
+ * 
+ * @author Team2
+ */
 public class SquarePrism extends ThreeDimensionalShape {
+	
     /**
      * Constructor for a square prism object with specified height and side length.
      *

@@ -1,16 +1,22 @@
-
 package Utility;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- *
- * @author pltdu
+ * The Utility class provides a collection of sorting algorithms and utility methods for sorting arrays of generic types.
+ * 
+ * @author Team2
+ * @param <T> The type of elements in the array.
  */
 public class Utility<T> {
-    // public static void selectionSort(int[] array) {
-
+	
+	/**
+     * Sorts the given array using the selection sort algorithm.
+     *
+     * @param array      The array to be sorted.
+     * @param comparator The comparator used to determine the order of elements.
+     */
     public void selectionSort(T[] array, Comparator<T> comparator) {
         for (int i = 0; i < array.length - 1; i++) {
             int min = i;
@@ -26,8 +32,12 @@ public class Utility<T> {
     }
 
 
-    // compare each unsorted element with the 'sorted' part of the array
-
+    /**
+     * Sorts the given array using the insertion sort algorithm.
+     *
+     * @param array      The array to be sorted.
+     * @param comparator The comparator used to determine the order of elements.
+     */
     public void insertionSort(T[] array, Comparator<T> comparator) {
         for (int i = 1; i < array.length; i++) {
             T key = array[i];
@@ -40,9 +50,12 @@ public class Utility<T> {
         }
     }
 
-    // compare each element with the next element. If its in the wrong order, swap
-    // them.
-
+    /**
+     * Sorts the given array using the bubble sort algorithm.
+     *
+     * @param array      The array to be sorted.
+     * @param comparator The comparator used to determine the order of elements.
+     */
     public void bubbleSort(T[] array, Comparator<T> comparator) {
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - i - 1; j++) {
@@ -55,10 +68,14 @@ public class Utility<T> {
         }
     }
 
-    // 1. pick a pivot
-    // 2. move elements left of pivot if lower, right if higher
-    // 3. repeat the sort on left+right subarrays until subarrays have only 1 value.
-
+    /**
+     * Sorts the given array using the quick sort algorithm.
+     *
+     * @param array      The array to be sorted.
+     * @param lowIndex   The index of the first element in the subarray to be sorted.
+     * @param highIndex  The index of the last element in the subarray to be sorted.
+     * @param comparator The comparator used to determine the order of elements.
+     */
     public void quickSort(T[] array, int lowIndex, int highIndex, Comparator<T> comparator) {
         if (lowIndex >= highIndex) {
             return;
@@ -82,33 +99,39 @@ public class Utility<T> {
         quickSort(array, lp + 1, highIndex, comparator);
     }
 
-    // swap 2 elements in array using provided indexes
-
+    /**
+     * For quick sort algorithm.
+     * This method is used when 2 elements in the array are required to be swapped.
+     * 
+     * @param array  The array to be swapped.
+     * @param index1 The index of element 1 to be swapped.
+     * @param index2 The index of element 2 to be swapped.
+     */
     private void swap(T[] array, int index1, int index2) {
         T temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
     }
 
-    // Merge Sort - using recursion
-    // time complexity: O(n log n)
-    // space complexity: O(2n) //larger storage required because its using more
-    // lists
-    // start with 2 sorted lists.
-    // compare first element of each list against each other.
-    // smallest goes to the new list first, then the other one. Repeat as you add
-    // everything to a single list
-
-    // step 1: distribute so lists are equal.
-    // step 2: sort each list
-    // step 3: merge the lists
-    // if more than 2 lists (like 4), merge 2 together, the other 2 together, then
-    // merge the 2 merged lists together
-
+    /**
+     * Sorts the given array using the merge sort algorithm.
+     *
+     * @param array      The array to be sorted.
+     * @param comparator The comparator used to determine the order of elements.
+     */
     public void mergeSort(T[] array, Comparator<T> comparator) {
         mergeSort(array, 0, array.length - 1, comparator);
     }
     
+    /**
+     * For merge sort algorithm.
+     * This method is used to call itself recursively to sort the subarray of elements.
+     * 
+     * @param array
+     * @param left
+     * @param right
+     * @param comparator
+     */
     private void mergeSort(T[] array, int left, int right, Comparator<T> comparator) {
         if (left < right) {
             int mid = left + (right - left) / 2;
@@ -118,6 +141,16 @@ public class Utility<T> {
         }
     }
     
+    /**
+     * For merge sort algorithm.
+     * This method is used to merge 2 subarrays.
+     * 
+     * @param array      The array containing the subarrays to be merged.
+     * @param left       The index of the left boundary of the first subarray.
+     * @param mid        The index marking the end of the first subarray and the start of the second subarray.
+     * @param right      The index of the right boundary of the second subarray.
+     * @param comparator The comparator used to determine the order of elements.
+     */
     private void merge(T[] array, int left, int mid, int right, Comparator<T> comparator) {
         int n1 = mid - left + 1;
         int n2 = right - mid;
@@ -151,9 +184,28 @@ public class Utility<T> {
         }
     }
 
+    /**
+     * Sorts the given array using the radix sort algorithm.
+     *
+     * @param array      The array to be sorted.
+     * @param comparator The comparator used to determine the order of elements.
+     */
+    public void radixSort(T[] array, Comparator<T> comparator) {
+        int max = getMax(array, comparator);
     
-    // The 2nd method {countSort} to sort the order by given exponential place
-
+        for (int exp = 1; max / exp > 0; exp *= 10) {
+            countSort(array, exp, comparator);
+        }
+    }
+    
+    /**
+     * For radix sort algorithm.
+     * This method is used to perform counting sort on the array for a specific digit position.
+     *
+     * @param array      The array to be sorted.
+     * @param exp        The digit position (e.g., units, tens) to sort based on.
+     * @param comparator The comparator used to determine the order of elements.
+     */
     private void countSort(T[] array, int exp, Comparator<T> comparator) {
         T[] output = Arrays.copyOf(array, array.length);
         int[] buckets = new int[10];
@@ -176,16 +228,14 @@ public class Utility<T> {
         System.arraycopy(output, 0, array, 0, array.length);
     }
     
-    // Radix Sort - non-comparative. doesn't work with objects.
-
-    public void radixSort(T[] array, Comparator<T> comparator) {
-        int max = getMax(array, comparator);
-    
-        for (int exp = 1; max / exp > 0; exp *= 10) {
-            countSort(array, exp, comparator);
-        }
-    }
-    
+    /**
+     * For radix sort algorithm.
+     * This method is used to return the maximum element in the array based on the comparator.
+     *
+     * @param array      The array to find the maximum element in.
+     * @param comparator The comparator used to determine the order of elements.
+     * @return The maximum element in the array.
+     */
     private int getMax(T[] array, Comparator<T> comparator) {
         T max = array[0];
     
@@ -195,41 +245,44 @@ public class Utility<T> {
             }
         }
     
-        return max != null ? Integer.parseInt(max.toString()) : 0; // Convert max to integer for radix sort
+        return max != null ? Integer.parseInt(max.toString()) : 0;
     }
     
     /**
-     * Team's choice sorting methods
-     * @param array with generic type
-     * @param comparator
+     * Sorts the given array using the heap sort algorithm.
+     *
+     * @param array      The array to be sorted.
+     * @param comparator The comparator used to determine the order of elements.
      */
-   
     public void heapSort(T[] array, Comparator<T> comparator) {
         if (array == null || array.length <= 1) {
-            return; // No need to sort.
+            return;
         }
 
         int n = array.length;
 
-        // Build a max-heap
         for (int i = n / 2 - 1; i >= 0; i--) {
             heapify(array, n, i, comparator);
         }
 
-        // Extract elements from the heap one by one
         for (int i = n - 1; i > 0; i--) {
-            // Swap the root (maximum element) with the last element
             T temp = array[0];
             array[0] = array[i];
             array[i] = temp;
 
-            // Call heapify on the reduced heap
             heapify(array, i, 0, comparator);
         }
     }
 
-    
-    
+    /**
+     * For heap sort algorithm.
+     * This method is used to heapify a subarray of the given array.
+     *
+     * @param array      The array to be sorted.
+     * @param n          The size of the subarray.
+     * @param i          The index of the root node of the subarray.
+     * @param comparator The comparator used to determine the order of elements.
+     */
     private void heapify(T[] array, int n, int i, Comparator<T> comparator) {
         int largest = i;
         int left = 2 * i + 1;
@@ -244,12 +297,10 @@ public class Utility<T> {
         }
 
         if (largest != i) {
-            // Swap array[i] and array[largest]
             T temp = array[i];
             array[i] = array[largest];
             array[largest] = temp;
 
-            // Recursively heapify the affected sub-tree
             heapify(array, n, largest, comparator);
         }
     }

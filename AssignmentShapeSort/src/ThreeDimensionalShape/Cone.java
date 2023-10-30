@@ -2,8 +2,11 @@ package ThreeDimensionalShape;
 
 /**
  * A class representing a three-dimensional cone shape.
+ * 
+ * @author Team2
  */
 public class Cone extends ThreeDimensionalShape {
+	
     /**
      * Constructor for a cone object with specified height and radius.
      *

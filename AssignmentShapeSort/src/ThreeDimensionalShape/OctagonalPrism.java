@@ -1,6 +1,12 @@
 package ThreeDimensionalShape;
 
+/**
+ * A class representing a three-dimensional octagonal prism shape.
+ * 
+ * @author Team2
+ */
 public class OctagonalPrism extends ThreeDimensionalShape {
+	
     /**
      * Constructor for a octagonal prism object with specified height and side length.
      *

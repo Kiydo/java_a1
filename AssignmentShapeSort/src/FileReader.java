@@ -11,13 +11,14 @@ import ThreeDimensionalShape.SquarePrism;
 import ThreeDimensionalShape.ThreeDimensionalShape;
 import ThreeDimensionalShape.TriangularPrism;
 
-
-
 /**
  * The FileReader class reads three-dimensional shape data from a file and creates an array of shapes.
  * It can read shape information from a file, create corresponding shape objects, and store them in an array.
+ * 
+ * @author Team2
  */
 public class FileReader {
+	
     /**
      * Initializes a new instance of the FileReader class.
      */
@@ -26,8 +27,6 @@ public class FileReader {
 
     private ThreeDimensionalShape[] shapesArray;
 
-    
-    
     /**
      * Gets the array of ThreeDimensionalShape objects.
      *
@@ -36,8 +35,7 @@ public class FileReader {
     public ThreeDimensionalShape[] getShapesArray() {
         return shapesArray;
     }
-    
-    
+        
     /**
      * Reads three-dimensional shape data from a file and populates the shapesArray.
      *
@@ -62,7 +60,6 @@ public class FileReader {
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + fileName);
         }
-
     }
     
     /**
@@ -74,7 +71,6 @@ public class FileReader {
      * @return A ThreeDimensionalShape object corresponding to the given parameters.
      * @throws IllegalArgumentException if the objectType is not supported.
      */
-
     private ThreeDimensionalShape createShape(String objectType, double height, double sideLength) {
         objectType = objectType.toLowerCase(); // Normalize the input
         switch (objectType) {

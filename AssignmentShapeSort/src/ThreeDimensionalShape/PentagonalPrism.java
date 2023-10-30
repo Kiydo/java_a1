@@ -1,6 +1,13 @@
 package ThreeDimensionalShape;
 
+
+/**
+ * A class representing a three-dimensional pentagonal prism shape.
+ * 
+ * @author Team2
+ */
 public class PentagonalPrism extends ThreeDimensionalShape {
+	
     /**
      * Constructor for a pentagonal prism object with specified height and side length.
      *

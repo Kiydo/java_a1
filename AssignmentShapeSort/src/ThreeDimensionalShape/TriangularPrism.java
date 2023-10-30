@@ -2,6 +2,8 @@ package ThreeDimensionalShape;
 
 /**
  * A class representing a three-dimensional triangular prism shape.
+ * 
+ * @author Team2
  */
 public class TriangularPrism extends ThreeDimensionalShape {
     /**

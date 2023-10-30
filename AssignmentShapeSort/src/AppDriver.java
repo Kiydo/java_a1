@@ -10,7 +10,7 @@ import Utility.Utility;
  * The `AppDriver` class is responsible for sorting an array of three-dimensional shapes based on user-defined criteria.
  * It supports sorting by height, base area, or volume using various sorting algorithms.
  *
- * @author team2
+ * @author Team2
  */
 public class AppDriver {
 
@@ -22,19 +22,19 @@ public class AppDriver {
      *             - `-t`: The type of sorting criteria (a - Area, v - Volume, h - Height).
      *             - `-s`: The sort method (s - Selection, i - Insertion, b - Bubble, q - Quick, m - Merge, z - Heap).
      */
-public static void main(String[] args) {
+	public static void main(String[] args) {
         if (args.length != 3) {
             System.out.println("Invalid # of arguments.");
             return;
         }
 
-        //Declare variable to hold arguements
+        // Declare variable to hold arguements
         String fileName = "";
         String type = null;
         String sortMethod = null;
 
         
-        //Check and collect the arguemenst, assign them to variables
+        // Check and collect the arguemenst, assign them to variables
         try {
             for (int i = 0; i < 3; i++) {
                 if (args[i].substring(0, 2).equalsIgnoreCase("-f"))
@@ -50,19 +50,19 @@ public static void main(String[] args) {
         }
         
         
-        //Display arguemenst to user
+        // Display arguemenst to user
         System.out.println(fileName);
         System.out.println(type);
         System.out.println(sortMethod);
 
 
-        //Call the file reader and populate the array
+        // Call the file reader and populate the array
         FileReader fileReader = new FileReader();
         fileReader.readShapesFromFile(fileName);
         ThreeDimensionalShape[] shapesArray = fileReader.getShapesArray();
 
 
-        //Declare variables to measure time and create comparator according sorting method
+        // Declare variables to measure time and create comparator according sorting method
         long startTime;
         long endTime;
         Utility<ThreeDimensionalShape> shapeUtility = new Utility<>();
@@ -73,7 +73,7 @@ public static void main(String[] args) {
         Comparator<ThreeDimensionalShape> comparator = null; // Initialize the comparator
 
         
-        //Assign comparator according sort type "-t"
+        // Assign comparator according sort type "-t"
         switch (type) {
             case "h":
                 System.out.println("Sorting by height");
@@ -92,7 +92,7 @@ public static void main(String[] args) {
                 return;
         }
         
-        //Sort according to sort method
+        // Sort according to sort method
         switch (sortMethod) {
             case "s":
                 startTime = System.currentTimeMillis();
@@ -135,12 +135,11 @@ public static void main(String[] args) {
                 return;
         }
 
-        //Print result, every 1000th shape then the first and the last shape
+        // Print result, every 1000th shape then the first and the last shape
         for (int i = 0; i <= shapesArray.length; i = i + 1000) {
             System.out.println(shapesArray[i]);
         }
         System.out.println("First item:" + shapesArray[0]);
         System.out.println("Last item:" + shapesArray[shapesArray.length - 1]);
     }
-}    
-
+}
