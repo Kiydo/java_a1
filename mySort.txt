@@ -1,0 +1,38 @@
+Sorting Algorithm: Heap Sort
+
+The sorting algorithm of our choice is 'Heap Sort' Heap sorting repeatedly transforms the input array into a 
+max-heap and then extracts the maximum element from the heap, placing it at the end of the sorted portion of the array.
+This process continues until the entire array is sorted.
+ 
+/**PSUEDO CODE**/
+function heapSort(para: array, comparator)
+	if array = null or array length <= 1
+		return nothing
+
+	set variable n = array length (1 assignment) = 1
+
+	for loop i = n/2-1 until i < 0 (1 assignment, 2 arithmatic, 1 comparison) = floor(log2(n/2))+1 + 1 + 2n
+		build max-heap with parameters for heapify function with iterations 
+	for loop extract elements from heap at a time until 0 (2 assignment, 2 arithmatic, 1 comparison ) = 2n+3
+		swap max element with index element of array with help from temporary variable (3 assignment) = 3
+		restore max-heap with new parameters
+	
+ 
+		
+function heapify(para:array, n, i, comparator)
+	set variable max = i (1 assignment) = 1
+	set variable left = the left of index 2*i+1 (1 assignment, 2 arithmatic) = 3
+	set variable right = the right of index 2*i+2 (1 assignment, 2 arithmatic) = 3
+	
+	if left < n and if comparator(array[left] > array[max]) (2 comaprison) = 2
+		max = left (assignment = 1) = 1
+	if right < n and if comparator(array[right[ > array[max]) (2 comparison) = 2
+		max = right (assignment = 1) = 1
+	if max != i (comparison = 1) = 1
+		swap max element with index element of array with help from temporary variable (3 assignment) = 3
+		repeat heapify with new values 
+		
+
+f(n) = 1 + floor(log2(n/2))+1 +1 + 2n + 2n+3 + 3 + 1 + 3 + 3 + 2 + 1 + 2 + 1 + 1 + 3 
+f(n) = 4n + 27 + floor(log2(n/2))
+Growth Rate in Big O notation = O(n)
